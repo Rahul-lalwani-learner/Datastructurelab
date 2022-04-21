@@ -1,10 +1,10 @@
 #include <iostream>
 
 using namespace std;
-
+int size=0;
 class ArrClass{
     public:
-    bool find_int(int *arr,int num,int size){
+    bool find_int(int *arr,int num){
         for(int i=0;i<size;i++){
             if(arr[i]==num){
                 return true;
@@ -13,7 +13,7 @@ class ArrClass{
         return false;
     }
 
-    int * replace(int *arr,int size,int index,int num){
+    int * replace(int *arr,int index,int num){
         for(int i=0;i<size;i++){
             if(i==index){
                 arr[i]=num;
@@ -21,16 +21,25 @@ class ArrClass{
         }
         return arr;
     }
+    void append(int *arr,int num){
+        arr[size]=num;
+        size++;
+    }
+    void display(int *arr){
+        if(size==0){
+            cout<<"Array is empty"<<endl;
+        }
+        else{
 
-    void display(int *arr,int size){
         cout<<"[ "; 
         for(int i=0;i<size;i++){
             cout<<arr[i]<<" ";
         }
         cout<<"]"<<endl;
+        }
     }
 
-    int *sort_asc(int *arr,int size){
+    int *sort_asc(int *arr){
         for(int i=0;i<size;i++){
             for(int j=0;j<i;j++){
                 if(arr[i]<arr[j]){
@@ -42,8 +51,26 @@ class ArrClass{
         }
         return arr;
     }
+    void insert(int *arr,int index,int num){
+        int j=size;
+        size++;
+        while(j>=index){
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[index]=num;
 
-    int *sort_dec(int *arr,int size){
+    }
+    void del(int *arr,int index){
+        int j=index;
+        while(j<=size){
+            arr[j]=arr[j+1];
+            j++;
+        }
+        size--;
+
+    }
+    int *sort_dec(int *arr){
         for(int i=0;i<size;i++){
             for(int j=0;j<i;j++){
                 if(arr[i]>arr[j]){
@@ -59,11 +86,20 @@ class ArrClass{
 };
 int main(){
     ArrClass test;
-    int arr[]={23,4,3,5,32,40};
+    int *arr=(int *)malloc(sizeof(int)*100);
+    test.append(arr,1);
+    test.append(arr,2);
+    test.append(arr,3);
+    test.append(arr,4);
+    test.append(arr,5);
+    test.append(arr,6);
+    // test.replace(arr,3,34);
     // test.replace(arr,6,3,34);
     // test.display(arr,6);
-    // test.sort_asc(arr,6);
-    // test.sort_dec(arr,6);
-    test.display(arr,6);
+    // test.sort_asc(arr);
+    // test.sort_dec(arr);
+    // test.insert(arr,2,34);
+    // test.del(arr,3);
+    test.display(arr);
     return 0;
 }
