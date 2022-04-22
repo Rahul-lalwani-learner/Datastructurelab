@@ -1,8 +1,8 @@
 #include <iostream>
 
 using namespace std;
-int size=0;
 class ArrClass{
+    int size=0;
     public:
     bool find_int(int *arr,int num){
         for(int i=0;i<size;i++){
@@ -85,14 +85,18 @@ class ArrClass{
 
 };
 int main(){
-    ArrClass test;
-    int *arr=(int *)malloc(sizeof(int)*100);
+    ArrClass test,second;
+    int *arr=(int *)calloc(100,sizeof(int));
+    int *array=(int *)calloc(100,sizeof(int));
     test.append(arr,1);
     test.append(arr,2);
     test.append(arr,3);
     test.append(arr,4);
     test.append(arr,5);
     test.append(arr,6);
+    second.append(array,23);
+    second.append(array,23);
+    second.append(array,23);
     // test.replace(arr,3,34);
     // test.replace(arr,6,3,34);
     // test.display(arr,6);
@@ -101,5 +105,6 @@ int main(){
     // test.insert(arr,2,34);
     // test.del(arr,3);
     test.display(arr);
+    second.display(arr);
     return 0;
 }
