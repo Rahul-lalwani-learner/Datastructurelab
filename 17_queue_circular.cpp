@@ -10,12 +10,12 @@ void display(){
         cout<<"Queue is empty"<<endl;
     }
     else{
-    int i=front;
-    while(i<=rear){
-        cout<<arr[i]<<" ";
-        i++;
-    }
-    cout<<endl;
+        int i=front;
+        while(i<=rear){
+            cout<<arr[i]<<" ";
+            i++;
+        }
+        cout<<endl;
     }
 }
 void addElement(int data){
