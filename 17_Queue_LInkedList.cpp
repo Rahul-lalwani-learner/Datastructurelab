@@ -1,6 +1,15 @@
 #include <iostream>
 
 using namespace std;
+/*
+1. [Linked queue empty?] if(Front ==NULL) then write. UnderFlow and Exit
+2. Set Temp=Front
+3. Item=temp->info
+4. Front=Front->link
+5. Temp->link=Avail and Avial = temp
+6. Exit
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+*/
 struct node{
     int info;
     struct node*link;
@@ -52,11 +61,29 @@ void Delete(){
 
 }
 int main(){
-    Insert(1);
-    Insert(2);
-    Insert(3);
-    Insert(4);
-    Delete();
-    Display();
+   int ch;
+   cout<<"1) Insert element to queue"<<endl;
+   cout<<"2) Delete element from queue"<<endl;
+   cout<<"3) Display all the elements of queue"<<endl;
+   cout<<"4) Exit"<<endl;
+   do {
+      cout<<"Enter your choice : "<<endl;
+      cin>>ch;
+      switch (ch) {
+         case 1:
+            int val;
+            cout<<"Enter data: ";
+            cin>>val; 
+            Insert(val);
+            break;
+         case 2: Delete();
+         break;
+         case 3: Display();
+         break;
+         case 4: cout<<"Exit"<<endl;
+         break;
+         default: cout<<"Invalid choice"<<endl;
+      }
+   } while(ch!=4);
     return 0;
 }
