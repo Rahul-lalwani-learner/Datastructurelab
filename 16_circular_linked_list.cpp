@@ -15,6 +15,13 @@ void insert_beg(int newdata){
     }
     else{
         newnode->next=head->next;
+        // struct node *ptr=head;
+        // if(ptr->next!=head){
+        //     do{
+        //         ptr=ptr->next;
+        //     }while(ptr->next!=head);
+        // }
+        // ptr->next=newnode;
         head->next=newnode;
         head=newnode;
         // head=newnode;
@@ -107,15 +114,15 @@ int main(){
     insert_beg(1);
     
     // insert_end(6);
-    int length=Length();
-    cout<<"Length is : "<<length<<endl;
-    cout<<"Original linked list: " <<endl;
-    Display();
-    cout<<"result"<<endl;
+    // int length=Length();
+    // cout<<"Length is : "<<length<<endl;
+    // cout<<"Original linked list: " <<endl;
+    // Display();
+    // cout<<"result"<<endl;
     // insert_mid(10,3);
     // insert_mid(10,9);
     // insert_mid(10,1);
-    insert_mid(10,0);
+    // insert_mid(10,0);
     Display();
     return 0;
 }
